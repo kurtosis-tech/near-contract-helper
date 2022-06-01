@@ -124,24 +124,28 @@ const creatorKeyJson = (() => {
 
 const creatorKeysJson = (() => {
     let result;
-    try {
+    // I commented this because it was throwing an error
+    result = null //then remove this line
+   /* try {
         result = JSON.parse(process.env.ACCOUNT_CREATOR_KEYS);
         console.log('Round-robin account creation enabled. Yeee HAWWWW :)');
     } catch (e) {
         console.warn(`Round-robin account creation not available.\nError parsing ACCOUNT_CREATOR_KEYS='${process.env.ACCOUNT_CREATOR_KEYS}':`, e);
         return null;
-    }
+    }*/
 
     return result;
 })();
 
 const fundedCreatorKeyJson = (() => {
-    try {
+    // I commented this because it was throwing an error
+   /* try {
         return JSON.parse(process.env.FUNDED_ACCOUNT_CREATOR_KEY);
     } catch (e) {
         console.warn(`Funded account creation not available.\nError parsing FUNDED_ACCOUNT_CREATOR_KEY='${process.env.FUNDED_ACCOUNT_CREATOR_KEY}':`, e);
         return null;
-    }
+    }*/
+    return null; //then remove this line
 })();
 
 const DETERM_KEY_SEED = process.env.DETERM_KEY_SEED || creatorKeyJson.private_key;
